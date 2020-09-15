@@ -1,7 +1,15 @@
+require('dotenv').config()
 const {Client, MessageAttachment, Message} = require('discord.js');
 const client = new Client();
 var GphApiClient = require('giphy-js-sdk-core')
-giphyClient = GphApiClient("j5nHYt6LESKPwLZ7V5QjG1VMGNhNFwIv");
+
+const botAPI = process.env.BOT_API;
+const giphyAPI = process.env.GIPHY_API;
+
+// console.log(botAPI);
+
+
+giphyClient = GphApiClient(giphyAPI);
 
 
 client.on('ready', ()=>{
@@ -65,4 +73,4 @@ client.on('message', msg =>{
     }
 });
 
-client.login("NzU1MzIwMDk1MDEzNjAxMjkx.X2Bkpw.QkJeQ8O24F1gqlVud7Rpl3t1w-w")
+client.login(botAPI);
